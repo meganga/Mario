@@ -33,4 +33,4 @@ The project is created with
 
 ## Github Pages
 
-- **Access the game here**: - https://meganga.github.io/SpaceInvaders/
+- **Access the game here**: - https://meganga.github.io/Mario/
