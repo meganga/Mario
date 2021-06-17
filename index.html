@@ -1,3 +1,78 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>kaboom</title>
+  <meta charset="utf-8">
+  <style>
+    * {
+      margin: 0;
+    }
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+<script src="https://kaboomjs.com/lib/0.5.0/kaboom.js"></script>
+<script src="https://kaboomjs.com/lib/0.5.0/plugins/aseprite.js"></script>
+<script src="https://kaboomjs.com/lib/0.5.0/plugins/pedit.js"></script>
+<script src="https://kaboomjs.com/pub/legacy/kbmsprite.js"></script>
+
+  <script>
+
+kaboom({
+  ...{"fullscreen":true,"width":240,"height":240,"scale":1,"startScene":"main","version":"0.5.0","clearColor":[0,0,0,1]},
+  global: true,
+  plugins: [ peditPlugin, asepritePlugin, kbmspritePlugin ],
+});
+loadSprite("Block", "sprites/Block.png");
+loadSprite("Blue2", "sprites/Blue2.png");
+loadSprite("BlueBlock", "sprites/BlueBlock.png");
+loadSprite("BlueEnemy", "sprites/BlueEnemy.png");
+loadSprite("BlueMystery", "sprites/BlueMystery.png");
+loadSprite("BlueWall", "sprites/BlueWall.png");
+loadSprite("BrownWall", "sprites/BrownWall.png");
+loadSprite("Coin", "sprites/Coin.png");
+loadSprite("EmptyBlock", "sprites/EmptyBlock.png");
+loadSprite("Enemy", "sprites/Enemy.png");
+loadSprite("FlowerPowerUp", "sprites/FlowerPowerUp.png");
+loadSprite("MarioStanding", "sprites/MarioStanding.png");
+loadSprite("Pipe", "sprites/Pipe.png");
+loadSprite("PowerUp", "sprites/PowerUp.png");
+loadSprite("QuestionMark", "sprites/QuestionMark.png");
+loadSprite("pipe-left", "sprites/pipe-left.png");
+loadSprite("pipe-right", "sprites/pipe-right.png");
+loadSprite("pipe-top-left-side", "sprites/pipe-top-left-side.png");
+loadSprite("pipe-top-right-side", "sprites/pipe-top-right-side.png");
+loadSprite("undefined - Imgur", "sprites/undefined - Imgur.png");
+scene("lose", (args = {}) => {
+// displaying the message game over
+add([
+  text('Game Over'),
+  scale(5),
+  origin('center'),
+  pos(width() / 2, height() / 3),
+])
+
+// displaying the score
+add([
+  text(args.score),
+  scale(3),
+  origin('center'),
+  pos(width() / 2, height() / 2),
+])
+});
+scene("main", (args = {}) => {
 const MOVE_SPEED = 120
 const JUMP_FORCE = 360
 const BIG_JUMP_FORCE = 470
@@ -232,3 +307,11 @@ player.collides('pipe',  () => {
   })
 })
 
+
+});
+start("main");
+
+  </script>
+</body>
+
+</html>
